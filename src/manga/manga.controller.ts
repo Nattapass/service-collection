@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { MangaService } from './manga.service';
 import { Manga } from './schema/manga.schema';
 
@@ -6,7 +6,6 @@ import { Manga } from './schema/manga.schema';
 export class MangaController {
 
     constructor(private mangaService: MangaService){
-
     }
 
     @Get()
@@ -14,5 +13,8 @@ export class MangaController {
         return this.mangaService.findAll()
     }
 
-
+    @Post()
+    async createManga(): Promise<Manga>{
+        return this.mangaService.create();
+    }
 }
