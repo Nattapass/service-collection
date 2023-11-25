@@ -7,7 +7,7 @@ import * as mongoose from 'mongoose';
 export class MangaService {
 
     constructor(
-        @InjectModel(Manga.name)
+        @InjectModel('Manga')
         private mangaModel : mongoose.Model<Manga>
     ){}
 
