@@ -1,20 +1,18 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { MangaService } from './manga.service';
 import { Manga } from './schema/manga.schema';
 
 @Controller('manga')
 export class MangaController {
+  constructor(private mangaService: MangaService) {}
 
-    constructor(private mangaService: MangaService){
-    }
+  @Get()
+  async getAllManga(): Promise<Manga[]> {
+    return this.mangaService.findAll();
+  }
 
-    @Get()
-    async getAllManga(): Promise<Manga[]>{
-        return this.mangaService.findAll()
-    }
-
-    @Post()
-    async createManga(): Promise<Manga>{
-        return this.mangaService.create();
-    }
+  @Post()
+  async createManga(@Body() postData: any): Promise<Manga> {
+    return this.mangaService.create(postData);
+  }
 }
