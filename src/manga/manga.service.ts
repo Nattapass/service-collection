@@ -21,7 +21,11 @@ export class MangaService {
   }
 
   async create(data: any): Promise<Manga> {
-    const res = await this.mangaModel.create(data);
+    const count = await this.mangaModel.find().countDocuments({});
+    const res = await this.mangaModel.create({
+      ...data,
+      no: (count + 1).toString(),
+    });
     return res;
   }
 }
