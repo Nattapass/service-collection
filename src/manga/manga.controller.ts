@@ -24,7 +24,6 @@ export class MangaController {
   ): Promise<Manga> {
     const query = { [fieldName]: fieldValue };
     const updatedResource = await this.mangaService.update(query, updateData);
-
     return updatedResource;
   }
 }
