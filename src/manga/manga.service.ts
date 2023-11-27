@@ -30,13 +30,16 @@ export class MangaService {
   }
 
   async update(query: any, data: any): Promise<Manga> {
+    const newData = { ...data, no: query.no };
     const res = await this.mangaModel.findOneAndUpdate(
       {
         no: '6',
       },
-      { ...data, no: query.no },
+      newData,
       { new: true },
     );
+
+    console.log('res', res);
 
     return res;
   }
