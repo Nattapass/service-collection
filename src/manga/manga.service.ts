@@ -28,4 +28,12 @@ export class MangaService {
     });
     return res;
   }
+
+  async update(query: any, data: any): Promise<Manga> {
+    const res = await this.mangaModel.findOneAndUpdate({
+      query,
+      data,
+    });
+    return res;
+  }
 }

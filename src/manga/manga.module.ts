@@ -5,8 +5,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MangaSchema } from './schema/manga.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{name: 'Manga' , schema: MangaSchema}])],
+  imports: [
+    MongooseModule.forFeature([{ name: 'Manga', schema: MangaSchema }]),
+  ],
   providers: [MangaService],
-  controllers: [MangaController]
+  controllers: [MangaController],
 })
 export class MangaModule {}

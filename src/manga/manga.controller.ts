@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { MangaService } from './manga.service';
 import { Manga } from './schema/manga.schema';
 
@@ -14,5 +14,17 @@ export class MangaController {
   @Post()
   async createManga(@Body() postData: any): Promise<Manga> {
     return this.mangaService.create(postData);
+  }
+
+  @Put('/:fieldName/:fieldValue')
+  async updateResourceByField(
+    @Param('fieldName') fieldName: string,
+    @Param('fieldValue') fieldValue: string,
+    @Body() updateData: any,
+  ): Promise<Manga> {
+    const query = { [fieldName]: fieldValue };
+    const updatedResource = await this.mangaService.update(query, updateData);
+
+    return updatedResource;
   }
 }
