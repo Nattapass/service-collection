@@ -18,6 +18,10 @@ export class Manga extends Document {
   status: string;
   @Prop()
   no: string;
+  @Prop()
+  type: string;
+  @Prop()
+  imgUrl: string;
 }
 
 export const MangaSchema = SchemaFactory.createForClass(Manga);
