@@ -7,7 +7,7 @@ async function bootstrap() {
 
   // Enable CORS with specific options
   app.enableCors({
-    origin: '*', // or a specific origin
+    origin: ['https://nattapass.github.io', 'http://localhost:4200'], // or a specific origin
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
     credentials: true,
