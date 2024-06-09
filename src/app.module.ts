@@ -2,15 +2,15 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
-import { MongooseModule, MongooseModuleOptions } from '@nestjs/mongoose';
+import { MongooseModule } from '@nestjs/mongoose';
 import { MangaModule } from './manga/manga.module';
-import mongoose from 'mongoose';
+import { ModelKitModule } from './model-kit/model-kit.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
-      isGlobal: true
+      isGlobal: true,
     }),
     // MongooseModule.forRootAsync({
     //   useFactory: async (): Promise<MongooseModuleOptions> => {
@@ -26,9 +26,10 @@ import mongoose from 'mongoose';
     //   },
     // }),
     MongooseModule.forRoot(process.env.DB_URI),
-    MangaModule
+    MangaModule,
+    ModelKitModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
