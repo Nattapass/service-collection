@@ -6,7 +6,7 @@ import { ModelKitSchema } from './schema/model-kit.schema';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'model-kit', schema: ModelKitSchema }]),
+    MongooseModule.forFeature([{ name: 'ModelKit', schema: ModelKitSchema }]),
   ],
   providers: [ModelKitService],
   controllers: [ModelKitController],
