@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MangaModule } from './manga/manga.module';
 import { ModelKitModule } from './model-kit/model-kit.module';
+import { ReviewBookModule } from './review-book/review-book.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { ModelKitModule } from './model-kit/model-kit.module';
     MongooseModule.forRoot(process.env.DB_URI),
     MangaModule,
     ModelKitModule,
+    ReviewBookModule,
   ],
   controllers: [AppController],
   providers: [AppService],
