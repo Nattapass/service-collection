@@ -3,6 +3,7 @@ import { Document } from 'mongoose';
 
 @Schema({
   timestamps: true,
+  collection: 'review_books',
 })
 export class ReviewBook extends Document {
   @Prop()
