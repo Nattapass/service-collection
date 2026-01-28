@@ -13,6 +13,9 @@ export class ReviewBook extends Document {
   type: string;
 
   @Prop()
+  license: string;
+
+  @Prop()
   total: number;
 
   @Prop()

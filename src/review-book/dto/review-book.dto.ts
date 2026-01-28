@@ -1,6 +1,7 @@
 export class ReviewBookDto {
   name: string;
   type: string;
+  license: string;
   total: number;
   story: number;
   character: number;
