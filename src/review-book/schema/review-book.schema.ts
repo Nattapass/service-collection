@@ -6,31 +6,34 @@ import { Document } from 'mongoose';
 })
 export class ReviewBook extends Document {
   @Prop()
-  Name: string;
+  name: string;
 
   @Prop()
-  Type: string;
+  type: string;
 
   @Prop()
-  Total: number;
+  total: number;
 
   @Prop()
-  Story: number;
+  story: number;
 
   @Prop()
-  Character: number;
+  character: number;
 
   @Prop()
-  Illustration: number;
+  illustration: number;
 
   @Prop()
-  Storytelling: number;
+  storytelling: number;
 
   @Prop()
-  Score: number;
+  score: number;
 
   @Prop()
-  Comment: string;
+  comment: string;
+
+  @Prop()
+  image: string;
 }
 
 export const ReviewBookSchema = SchemaFactory.createForClass(ReviewBook);
