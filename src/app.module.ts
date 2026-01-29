@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { MangaModule } from './manga/manga.module';
 import { ModelKitModule } from './model-kit/model-kit.module';
 import { ReviewBookModule } from './review-book/review-book.module';
+import { ReviewAnimeModule } from './review-anime/review-anime.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { ReviewBookModule } from './review-book/review-book.module';
     MangaModule,
     ModelKitModule,
     ReviewBookModule,
+    ReviewAnimeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
