@@ -7,6 +7,7 @@ import { MangaModule } from './manga/manga.module';
 import { ModelKitModule } from './model-kit/model-kit.module';
 import { ReviewBookModule } from './review-book/review-book.module';
 import { ReviewAnimeModule } from './review-anime/review-anime.module';
+import { ReviewPlamoModule } from './review-plamo/review-plamo.module';
 
 @Module({
   imports: [
@@ -32,8 +33,10 @@ import { ReviewAnimeModule } from './review-anime/review-anime.module';
     ModelKitModule,
     ReviewBookModule,
     ReviewAnimeModule,
+    ReviewPlamoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
+
