@@ -8,6 +8,7 @@ import { ModelKitModule } from './model-kit/model-kit.module';
 import { ReviewBookModule } from './review-book/review-book.module';
 import { ReviewAnimeModule } from './review-anime/review-anime.module';
 import { ReviewPlamoModule } from './review-plamo/review-plamo.module';
+import { ReviewGameModule } from './review-game/review-game.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { ReviewPlamoModule } from './review-plamo/review-plamo.module';
     ReviewBookModule,
     ReviewAnimeModule,
     ReviewPlamoModule,
+    ReviewGameModule,
   ],
   controllers: [AppController],
   providers: [AppService],
