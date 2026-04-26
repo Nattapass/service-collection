@@ -7,6 +7,11 @@ import { ReviewAnimeDto, UpdateReviewAnimeDto } from './dto/review-anime.dto';
 export class ReviewAnimeController {
   constructor(private reviewAnimeService: ReviewAnimeService) {}
 
+  @Get('types')
+  async getReviewAnimeTypes(): Promise<string[]> {
+    return this.reviewAnimeService.findTypes();
+  }
+
   @Get()
   async getAllReviewAnime(): Promise<ReviewAnime[]> {
     return this.reviewAnimeService.findAll();

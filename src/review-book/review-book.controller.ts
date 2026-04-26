@@ -7,6 +7,11 @@ import { ReviewBookDto, UpdateReviewBookDto } from './dto/review-book.dto';
 export class ReviewBookController {
   constructor(private reviewBookService: ReviewBookService) {}
 
+  @Get('license')
+  async getReviewBookLicenses(): Promise<string[]> {
+    return this.reviewBookService.findLicenses();
+  }
+
   @Get()
   async getAllReviewBooks(): Promise<ReviewBook[]> {
     return this.reviewBookService.findAll();

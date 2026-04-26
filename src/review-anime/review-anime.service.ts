@@ -22,6 +22,14 @@ export class ReviewAnimeService {
     }
   }
 
+  async findTypes(): Promise<string[]> {
+    const types = await this.reviewAnimeModel
+      .distinct<string>('type', { type: { $type: 'string', $ne: '' } })
+      .exec();
+
+    return types.filter((type): type is string => typeof type === 'string').sort();
+  }
+
   async create(data: ReviewAnimeDto): Promise<ReviewAnime> {
     const res = await this.reviewAnimeModel.create({
       ...data,

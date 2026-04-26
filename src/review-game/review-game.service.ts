@@ -22,6 +22,14 @@ export class ReviewGameService {
     }
   }
 
+  async findTypes(): Promise<string[]> {
+    const types = await this.reviewGameModel
+      .distinct<string>('platForm', { platForm: { $type: 'string', $ne: '' } })
+      .exec();
+
+    return types.filter((type): type is string => typeof type === 'string').sort();
+  }
+
   async create(data: ReviewGameDto): Promise<ReviewGame> {
     const res = await this.reviewGameModel.create({
       ...data,

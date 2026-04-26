@@ -7,6 +7,11 @@ import { ReviewPlamoDto, UpdateReviewPlamoDto } from './dto/review-plamo.dto';
 export class ReviewPlamoController {
   constructor(private reviewPlamoService: ReviewPlamoService) {}
 
+  @Get('line')
+  async getReviewPlamoLines(): Promise<string[]> {
+    return this.reviewPlamoService.findTypes();
+  }
+
   @Get()
   async getAllReviewPlamos(): Promise<ReviewPlamo[]> {
     return this.reviewPlamoService.findAll();

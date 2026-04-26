@@ -7,6 +7,11 @@ import { ReviewGameDto, UpdateReviewGameDto } from './dto/review-game.dto';
 export class ReviewGameController {
   constructor(private reviewGameService: ReviewGameService) {}
 
+  @Get('platForm')
+  async getReviewGamePlatForms(): Promise<string[]> {
+    return this.reviewGameService.findTypes();
+  }
+
   @Get()
   async getAllReviewGames(): Promise<ReviewGame[]> {
     return this.reviewGameService.findAll();

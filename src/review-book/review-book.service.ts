@@ -22,6 +22,16 @@ export class ReviewBookService {
     }
   }
 
+  async findLicenses(): Promise<string[]> {
+    const licenses = await this.reviewBookModel
+      .distinct<string>('license', { license: { $type: 'string', $ne: '' } })
+      .exec();
+
+    return licenses
+      .filter((license): license is string => typeof license === 'string')
+      .sort();
+  }
+
   async create(data: ReviewBookDto): Promise<ReviewBook> {
     const res = await this.reviewBookModel.create({
       ...data,
