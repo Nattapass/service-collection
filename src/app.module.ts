@@ -30,7 +30,10 @@ import { ReviewGameModule } from './review-game/review-game.module';
     //   },
     // }),
     MongooseModule.forRoot(process.env.DB_URI, {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 3000,
+      connectTimeoutMS: 3000,
+      socketTimeoutMS: 3000,
+      retryAttempts: 0,
     }),
     MangaModule,
     ModelKitModule,
