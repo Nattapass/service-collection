@@ -4,6 +4,8 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import express = require('express');
 import { Request, Response } from 'express';
 
+export const maxDuration = 30;
+
 const port = process.env.PORT || 3000;
 const server = express();
 let cachedServer: express.Express;
