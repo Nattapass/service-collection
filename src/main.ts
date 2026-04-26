@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import * as express from 'express';
+import express = require('express');
 import { Request, Response } from 'express';
 
 const port = process.env.PORT || 3000;
@@ -44,6 +44,13 @@ if (!process.env.VERCEL) {
 }
 
 export default async function handler(req: Request, res: Response) {
-  const server = await createServer();
-  return server(req, res);
+  try {
+    const server = await createServer();
+    return server(req, res);
+  } catch (error) {
+    console.error('Failed to initialize service-collection:', error);
+    return res.status(500).json({
+      message: 'Failed to initialize service-collection',
+    });
+  }
 }

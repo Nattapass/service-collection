@@ -29,7 +29,9 @@ import { ReviewGameModule } from './review-game/review-game.module';
     //     return { uri: 'mongodb+srv://nattapass:filmfilm@cluster0.y4w6z.mongodb.net/test?authSource=admin&replicaSet=atlas-xovsew-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true' }; // Replace with your actual connection details
     //   },
     // }),
-    MongooseModule.forRoot(process.env.DB_URI),
+    MongooseModule.forRoot(process.env.DB_URI, {
+      serverSelectionTimeoutMS: 5000,
+    }),
     MangaModule,
     ModelKitModule,
     ReviewBookModule,
