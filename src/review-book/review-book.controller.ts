@@ -30,6 +30,6 @@ export class ReviewBookController {
   ): Promise<ReviewBook> {
     const query = { [fieldName]: fieldValue };
     const updatedResource = await this.reviewBookService.update(query, updateData);
-    return updatedResource;
+    return updatedResource ;
   }
 }
