@@ -1,11 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import * as express from 'express';
+import { Request, Response } from 'express';
+
 const port = process.env.PORT || 3000;
+const server = express();
+let cachedServer: express.Express;
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-
-  // Enable CORS with specific options
+function enableCors(app: Awaited<ReturnType<typeof NestFactory.create>>) {
   app.enableCors({
     origin: [
       'https://nattapass.github.io',
@@ -16,6 +19,31 @@ async function bootstrap() {
     allowedHeaders: ['Content-Type'],
     credentials: true,
   });
+}
+
+async function createServer() {
+  if (cachedServer) {
+    return cachedServer;
+  }
+
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
+  enableCors(app);
+  await app.init();
+  cachedServer = server;
+  return cachedServer;
+}
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  enableCors(app);
   await app.listen(port, '0.0.0.0');
 }
-bootstrap();
+
+if (!process.env.VERCEL) {
+  bootstrap();
+}
+
+export default async function handler(req: Request, res: Response) {
+  const server = await createServer();
+  return server(req, res);
+}
