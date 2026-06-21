@@ -22,6 +22,9 @@ export class ReviewAnime extends Document {
   type: string;
 
   @Prop()
+  tier: string;
+
+  @Prop()
   episode: number;
 
   @Prop()

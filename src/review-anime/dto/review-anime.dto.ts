@@ -4,6 +4,7 @@ export class ReviewAnimeDto {
   image: string;
   'finished date': string;
   type: string;
+  tier: string;
   episode: number;
   story: number;
   art: number;

@@ -16,6 +16,9 @@ export class ReviewGame extends Document {
   platForm: string;
 
   @Prop()
+  tier: string;
+
+  @Prop()
   startDate: string;
 
   @Prop()

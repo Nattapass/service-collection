@@ -2,6 +2,7 @@ export interface ReviewGameData {
   image: string;
   name: string;
   platForm: string;
+  tier: string;
   startDate: string;
   endDate: string;
   story: number;
@@ -17,6 +18,7 @@ export class ReviewGameDto implements ReviewGameData {
   image: string;
   name: string;
   platForm: string;
+  tier: string;
   startDate: string;
   endDate: string;
   story: number;

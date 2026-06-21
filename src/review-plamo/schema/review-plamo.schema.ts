@@ -16,6 +16,9 @@ export class ReviewPlamo extends Document {
   line: string;
 
   @Prop()
+  tier: string;
+
+  @Prop()
   finishedDate: string;
 
   @Prop()
