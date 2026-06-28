@@ -2,6 +2,7 @@ export class ReviewBookDto {
   name: string;
   type: string;
   license: string;
+  genres: string[];
   tier: string;
   finishedDate: string;
   total: number;

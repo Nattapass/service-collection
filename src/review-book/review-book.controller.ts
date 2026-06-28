@@ -12,6 +12,11 @@ export class ReviewBookController {
     return this.reviewBookService.findLicenses();
   }
 
+  @Get('genres')
+  async getReviewBookGenres(): Promise<string[]> {
+    return this.reviewBookService.findGenres();
+  }
+
   @Get()
   async getAllReviewBooks(): Promise<ReviewBook[]> {
     return this.reviewBookService.findAll();

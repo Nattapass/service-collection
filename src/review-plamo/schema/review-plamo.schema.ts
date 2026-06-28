@@ -15,6 +15,9 @@ export class ReviewPlamo extends Document {
   @Prop()
   line: string;
 
+  @Prop({ type: [String], default: [] })
+  genres: string[];
+
   @Prop()
   tier: string;
 

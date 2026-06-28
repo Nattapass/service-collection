@@ -15,6 +15,9 @@ export class ReviewGame extends Document {
   @Prop()
   platForm: string;
 
+  @Prop({ type: [String], default: [] })
+  genres: string[];
+
   @Prop()
   tier: string;
 

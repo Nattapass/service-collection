@@ -2,6 +2,7 @@ export class ReviewPlamoDto {
   image: string;
   name: string;
   line: string;
+  genres: string[];
   tier: string;
   finishedDate: string;
   assembly: number;

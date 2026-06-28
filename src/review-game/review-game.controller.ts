@@ -12,6 +12,11 @@ export class ReviewGameController {
     return this.reviewGameService.findTypes();
   }
 
+  @Get('genres')
+  async getReviewGameGenres(): Promise<string[]> {
+    return this.reviewGameService.findGenres();
+  }
+
   @Get()
   async getAllReviewGames(): Promise<ReviewGame[]> {
     return this.reviewGameService.findAll();

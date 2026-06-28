@@ -12,6 +12,11 @@ export class ReviewAnimeController {
     return this.reviewAnimeService.findTypes();
   }
 
+  @Get('genres')
+  async getReviewAnimeGenres(): Promise<string[]> {
+    return this.reviewAnimeService.findGenres();
+  }
+
   @Get()
   async getAllReviewAnime(): Promise<ReviewAnime[]> {
     return this.reviewAnimeService.findAll();

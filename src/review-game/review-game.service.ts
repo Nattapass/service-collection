@@ -30,6 +30,14 @@ export class ReviewGameService {
     return types.filter((type): type is string => typeof type === 'string').sort();
   }
 
+  async findGenres(): Promise<string[]> {
+    const genres = await this.reviewGameModel
+      .distinct<string>('genres', { genres: { $type: 'string', $ne: '' } })
+      .exec();
+
+    return genres.filter((genre): genre is string => typeof genre === 'string').sort();
+  }
+
   async create(data: ReviewGameDto): Promise<ReviewGame> {
     const res = await this.reviewGameModel.create({
       ...data,

@@ -15,6 +15,9 @@ export class ReviewBook extends Document {
   @Prop()
   license: string;
 
+  @Prop({ type: [String], default: [] })
+  genres: string[];
+
   @Prop()
   tier: string;
 

@@ -12,6 +12,11 @@ export class ReviewPlamoController {
     return this.reviewPlamoService.findTypes();
   }
 
+  @Get('genres')
+  async getReviewPlamoGenres(): Promise<string[]> {
+    return this.reviewPlamoService.findGenres();
+  }
+
   @Get()
   async getAllReviewPlamos(): Promise<ReviewPlamo[]> {
     return this.reviewPlamoService.findAll();

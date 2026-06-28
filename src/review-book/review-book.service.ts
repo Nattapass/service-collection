@@ -32,6 +32,14 @@ export class ReviewBookService {
       .sort();
   }
 
+  async findGenres(): Promise<string[]> {
+    const genres = await this.reviewBookModel
+      .distinct<string>('genres', { genres: { $type: 'string', $ne: '' } })
+      .exec();
+
+    return genres.filter((genre): genre is string => typeof genre === 'string').sort();
+  }
+
   async create(data: ReviewBookDto): Promise<ReviewBook> {
     const res = await this.reviewBookModel.create({
       ...data,

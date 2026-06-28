@@ -21,6 +21,9 @@ export class ReviewAnime extends Document {
   @Prop()
   type: string;
 
+  @Prop({ type: [String], default: [] })
+  genres: string[];
+
   @Prop()
   tier: string;
 
